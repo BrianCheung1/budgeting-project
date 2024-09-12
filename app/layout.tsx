@@ -27,16 +27,16 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className="bg-[#121212]">
-          {/* <ThemeProvider
+      <html lang="en" suppressHydrationWarning>
+        <body>
+          <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          > */}
-          {children}
-          {/* </ThemeProvider> */}
+          >
+            {children}
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
