@@ -3,6 +3,9 @@ import localFont from "next/font/local"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ClerkProvider } from "@clerk/nextjs"
+import { QueryProviders } from "@/providers/query-providers"
+import { SheetProvider } from "@/providers/sheet-provider"
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,7 +38,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <QueryProviders>
+              <SheetProvider /> <Toaster />
+              {children}
+            </QueryProviders>
           </ThemeProvider>
         </body>
       </html>
