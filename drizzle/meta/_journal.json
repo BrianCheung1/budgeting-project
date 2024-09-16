@@ -15,6 +15,13 @@
       "when": 1726246224635,
       "tag": "0001_slow_umar",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1726511095325,
+      "tag": "0002_panoramic_firebird",
+      "breakpoints": true
     }
   ]
 }

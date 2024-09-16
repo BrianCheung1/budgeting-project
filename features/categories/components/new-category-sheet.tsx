@@ -6,23 +6,23 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet"
 import React from "react"
-import { useNewAccount } from "@/features/accounts/hooks/use-new-account"
-import { AccountForm } from "./account-form"
+import { useNewCategory } from "@/features/categories/hooks/use-new-category"
+import { CategoryForm } from "./category-form"
 import { FormValue } from "hono/types"
-import { insertAccountSchema } from "@/db/schema"
+import { insertCategorySchema } from "@/db/schema"
 import { z } from "zod"
-import { useCreateAccount } from "../api/use-create-account"
+import { useCreateCategory } from "../api/use-create-category"
 
-const formSchema = insertAccountSchema.pick({
+const formSchema = insertCategorySchema.pick({
   name: true,
 })
 
 type FormValues = z.input<typeof formSchema>
 
-export const NewAccountSheet = () => {
-  const { isOpen, onClose } = useNewAccount()
+export const NewCategorySheet = () => {
+  const { isOpen, onClose } = useNewCategory()
 
-  const mutation = useCreateAccount()
+  const mutation = useCreateCategory()
 
   const onSubmit = (values: FormValues) => {
     mutation.mutate(values, {
@@ -36,12 +36,12 @@ export const NewAccountSheet = () => {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent className="space-y-4 bg-white dark:bg-surfaceMixed-300">
         <SheetHeader>
-          <SheetTitle>New Account</SheetTitle>
+          <SheetTitle>New Category</SheetTitle>
           <SheetDescription>
-            Create an account to track your transactions.
+            Create an category to organize your transactions.
           </SheetDescription>
         </SheetHeader>
-        <AccountForm
+        <CategoryForm
           onSubmit={onSubmit}
           disabled={mutation.isPending}
           defaultValues={{ name: "" }}
