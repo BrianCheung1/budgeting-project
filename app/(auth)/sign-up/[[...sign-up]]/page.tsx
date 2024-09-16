@@ -3,7 +3,7 @@ import { SignUp, ClerkLoaded, ClerkLoading } from "@clerk/nextjs"
 import { Loader2 } from "lucide-react"
 import Image from "next/image"
 import { dark } from "@clerk/themes"
-import { ModeToggle } from "@/components/ModeToggle"
+import { ModeToggle } from "@/components/mode-toggle"
 import { useTheme } from "next-themes"
 
 export default function SignInPage() {

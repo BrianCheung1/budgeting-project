@@ -1,10 +1,10 @@
 import React from "react"
-import HeaderLogo from "./HeaderLogo"
-import Navigation from "./Navigation"
+import HeaderLogo from "./header-logo"
+import Navigation from "./navigation"
 import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs"
-import { ModeToggle } from "./ModeToggle"
+import { ModeToggle } from "./mode-toggle"
 import { Loader2 } from "lucide-react"
-import WelcomeMsg from "./WelcomeMsg"
+import WelcomeMsg from "./welcome-msg"
 
 const Header = () => {
   return (

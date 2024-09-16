@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/sheet"
 import React from "react"
 import { useNewAccount } from "@/features/accounts/hooks/use-new-account"
-import { AccountForm } from "./AccountForm"
+import { AccountForm } from "./account-form"
 import { FormValue } from "hono/types"
 import { insertAccountSchema } from "@/db/schema"
 import { z } from "zod"

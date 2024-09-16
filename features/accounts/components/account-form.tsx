@@ -70,7 +70,7 @@ export const AccountForm = ({
             </FormItem>
           )}
         />
-        <Button className="w-full" disabled={disabled}>
+        <Button className="w-full dark:bg-primary-500 text-white" disabled={disabled}>
           {id ? "Save Changes" : "Create Account"}
         </Button>
         {!!id && (
