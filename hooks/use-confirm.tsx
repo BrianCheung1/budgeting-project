@@ -10,6 +10,8 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog"
 
+
+//Creates a dialogue for user to confirm certain actions such as bulk delete or singular delete
 export const useConfirm = (
   title: string,
   message: string

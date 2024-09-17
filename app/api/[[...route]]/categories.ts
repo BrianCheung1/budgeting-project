@@ -8,6 +8,7 @@ import { and, eq, inArray } from "drizzle-orm"
 import { z } from "zod"
 
 const app = new Hono()
+  //get all categories for logged in user
   .get("/", clerkMiddleware(), async (c) => {
     const auth = getAuth(c)
 
@@ -20,6 +21,7 @@ const app = new Hono()
       .where(eq(categories.userId, auth.userId))
     return c.json({ data })
   })
+  //get a singular category for logged in user
   .get(
     "/:id",
     zValidator("param", z.object({ id: z.string().optional() })),
@@ -51,6 +53,7 @@ const app = new Hono()
       return c.json({ data })
     }
   )
+  //create a singular category for logged in user
   .post(
     "/",
     clerkMiddleware(),
@@ -79,6 +82,7 @@ const app = new Hono()
       return c.json({ data })
     }
   )
+  //delete multiple category for logged in user
   .post(
     "/bulk-delete",
     clerkMiddleware(),
@@ -105,6 +109,7 @@ const app = new Hono()
       return c.json({ data })
     }
   )
+  //Edit a singular category for logged in user
   .patch(
     "/:id",
     clerkMiddleware(),
@@ -145,6 +150,7 @@ const app = new Hono()
       return c.json({ data })
     }
   )
+  //delete a singular category for logged in user
   .delete(
     "/:id",
     clerkMiddleware(),

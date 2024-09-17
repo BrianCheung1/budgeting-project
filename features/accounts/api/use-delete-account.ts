@@ -7,7 +7,6 @@ type ReponseType = InferResponseType<
   (typeof client.api.accounts)[":id"]["$delete"]
 >
 
-
 export const useDeleteAccount = (id?: string) => {
   const queryClient = useQueryClient()
   const mutation = useMutation<ReponseType, Error>({
