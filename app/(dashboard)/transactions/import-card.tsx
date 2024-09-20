@@ -8,7 +8,7 @@ import { format, parse } from "date-fns"
 const dateFormat = "M/dd/yyyy"
 const outputFormat = "yyyy-MM-dd"
 
-const requiredOptions = ["amount", "date", "payee", "category"]
+const requiredOptions = ["amount", "date", "payee"]
 
 interface SelectColumnState {
   [key: string]: string | null
