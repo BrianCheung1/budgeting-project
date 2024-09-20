@@ -16,7 +16,6 @@ import { toast } from "sonner"
 import { useBulkCreateTransactions } from "@/features/transactions/api/use-bulk-create-transactions"
 import { useBulkCreateCategories } from "@/features/categories/api/use-bulk-create-categories"
 import { useGetCategories } from "@/features/categories/api/use-get-categories"
-import { useCreateCategory } from "@/features/categories/api/use-create-category"
 
 enum VARIANTS {
   LIST = "LIST",

@@ -138,6 +138,7 @@ export const columns: ColumnDef<ResponseType>[] = [
       return (
         <span>
           <AccountColumn
+            id={row.original.id}
             account={row.original.account}
             accountId={row.original.accountId}
           />

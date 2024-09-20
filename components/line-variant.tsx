@@ -3,8 +3,8 @@ import {
   XAxis,
   ResponsiveContainer,
   CartesianGrid,
-  BarChart,
-  Bar,
+  LineChart,
+  Line,
 } from "recharts"
 import { CustomTooltip } from "./custom-tooltip"
 import { format } from "date-fns"
@@ -17,10 +17,10 @@ type Props = {
   }[]
 }
 
-export const BarVariant = ({ data }: Props) => {
+export const LineVariant = ({ data }: Props) => {
   return (
     <ResponsiveContainer width="100%" height={350}>
-      <BarChart data={data}>
+      <LineChart data={data}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           axisLine={false}
@@ -31,9 +31,21 @@ export const BarVariant = ({ data }: Props) => {
           tickMargin={16}
         />
         <Tooltip content={<CustomTooltip />} />
-        <Bar dataKey="income" fill="#3b82f6" className="drop-shadow-sm" />
-        <Bar dataKey="expenses" fill="#f43f5e" className="drop-shadow-sm" />
-      </BarChart>
+        <Line
+          dot={false}
+          dataKey="income"
+          stroke="#3b82f6"
+          strokeWidth={2}
+          className="drop-shadow-sm"
+        />
+        <Line
+          dot={false}
+          dataKey="expenses"
+          stroke="#f43f5e"
+          strokeWidth={2}
+          className="drop-shadow-sm"
+        />
+      </LineChart>
     </ResponsiveContainer>
   )
 }

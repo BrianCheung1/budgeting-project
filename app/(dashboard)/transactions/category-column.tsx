@@ -14,12 +14,12 @@ export const CategoryColumn = ({ id, category, categoryId }: Props) => {
   const { onOpen: onOpenTransaction } = useOpenTransaction()
 
   const onClick = () => {
-    if (categoryId) {
-      onOpenCategory(categoryId)
-    } else {
-      onOpenCategory("")
-    }
-    // onOpenCategory(categoryId)
+    // if (categoryId) {
+    //   onOpenCategory(categoryId)
+    // } else {
+    //   onOpenTransaction(id)
+    // }
+    onOpenTransaction(id)
   }
   return (
     <div
