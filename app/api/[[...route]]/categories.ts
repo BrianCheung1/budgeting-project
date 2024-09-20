@@ -81,6 +81,39 @@ const app = new Hono()
 
       return c.json({ data })
     }
+  ) //create multiple transaction for logged in user
+  .post(
+    "/bulk-create",
+    clerkMiddleware(),
+    zValidator(
+      "json",
+      z.array(
+        insertCategorySchema.pick({
+          name: true,
+        })
+      )
+    ),
+    async (c) => {
+      const auth = getAuth(c)
+      const values = c.req.valid("json")
+
+      if (!auth?.userId) {
+        return c.json({ error: "Unauthorized" }, 401)
+      }
+
+      const data = await db
+        .insert(categories)
+        .values(
+          values.map((value) => ({
+            id: createId(),
+            userId: auth.userId,
+            ...value,
+          }))
+        )
+        .returning()
+
+      return c.json({ data })
+    }
   )
   //delete multiple category for logged in user
   .post(
