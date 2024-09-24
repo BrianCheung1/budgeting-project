@@ -77,9 +77,11 @@ const TransactionsPage = () => {
       name: value.category as string,
     }))
 
-    createCategories.mutate(newCategoryData, {
+    createCategories.mutateAsync(newCategoryData, {
       onSuccess: () => {
+        console.log(categories)
         onCancelImport()
+  
       },
     })
 

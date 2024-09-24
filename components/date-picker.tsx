@@ -2,7 +2,12 @@ import React from "react"
 import { Calendar as CaldenarIcon } from "lucide-react"
 import { SelectSingleEventHandler } from "react-day-picker"
 import { format } from "date-fns"
-import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
+import {
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverTrigger,
+} from "./ui/popover"
 import { Calendar } from "./ui/calendar"
 import { cn } from "@/lib/utils"
 import { Button } from "./ui/button"
@@ -31,7 +36,7 @@ export const DatePicker = ({ value, onChange, disabled }: Props) => {
       </PopoverTrigger>
       <PopoverContent>
         <Calendar
-        className="flex justify-center"
+          className="flex justify-center"
           mode="single"
           selected={value}
           onSelect={onChange}

@@ -5,14 +5,20 @@ import { useSearchParams } from "next/navigation"
 import { DataCard, DataCardLoading } from "./data-card"
 import { FaPiggyBank } from "react-icons/fa"
 import { FaArrowTrendUp, FaArrowTrendDown } from "react-icons/fa6"
+import { parseISO } from "date-fns"
 
 export const DataGrid = () => {
   const { data, isLoading } = useGetSummary()
 
   const params = useSearchParams()
-  const to = params.get("to") || undefined
-  const from = params.get("from") || undefined
+  const toParam = params.get("to")
+  const fromParam = params.get("from")
 
+  // Parse the `to` and `from` params into Date objects using `parseISO`
+  const to = toParam ? parseISO(toParam) : undefined
+  const from = fromParam ? parseISO(fromParam) : undefined
+
+  // Format the date range using the parsed dates
   const dateRangeLabel = formatDateRange({ to, from })
 
   if (isLoading) {

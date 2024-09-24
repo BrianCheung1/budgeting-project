@@ -5,6 +5,7 @@ import { ClerkLoaded, ClerkLoading, UserButton } from "@clerk/nextjs"
 import { ModeToggle } from "./mode-toggle"
 import { Loader2 } from "lucide-react"
 import WelcomeMsg from "./welcome-msg"
+import { Filters } from "./filters"
 
 const Header = () => {
   return (
@@ -26,6 +27,7 @@ const Header = () => {
           </div>
         </div>
         <WelcomeMsg />
+        <Filters />
       </div>
     </header>
   )

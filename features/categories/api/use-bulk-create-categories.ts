@@ -17,7 +17,7 @@ export const useBulkCreateCategories = () => {
 
   const mutation = useMutation<ResponseType, Error, RequestType>({
     mutationFn: async (json) => {
-      // The function to run when the mutation is triggered (bulk deleting transactions)
+      // The function to run when the mutation is triggered (bulk creating transactions)
       const response = await client.api.categories["bulk-create"]["$post"]({
         json,
       })
@@ -26,7 +26,8 @@ export const useBulkCreateCategories = () => {
     onSuccess: () => {
       toast.success("Categories created")
       queryClient.invalidateQueries({ queryKey: ["categories"] })
-      // TODO: Also invalidate summary
+      queryClient.invalidateQueries({ queryKey: ["transactions"] })
+      queryClient.invalidateQueries({ queryKey: ["summary"] })
     },
     onError: () => {
       toast.error("Failed to create categories")
