@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import { QueryProviders } from "@/providers/query-providers"
 import { SheetProvider } from "@/providers/sheet-provider"
 import { Toaster } from "@/components/ui/sonner"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
+      <SpeedInsights />
       <html lang="en" suppressHydrationWarning>
         <body>
           <ThemeProvider
