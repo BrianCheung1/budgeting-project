@@ -1,4 +1,4 @@
-import { formatCurrency, formatPercentage } from "@/lib/utils"
+import { formatCurrency} from "@/lib/utils"
 import {
   Cell,
   Legend,

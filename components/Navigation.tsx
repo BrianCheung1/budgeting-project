@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from "react"
-import { ModeToggle } from "./mode-toggle"
 import { usePathname, useRouter } from "next/navigation"
 import NavButton from "./nav-button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -61,6 +60,7 @@ const Navigation = () => {
           <nav className="flex flex-col gap-y-2 pt-6">
             {routes.map((route) => (
               <Button
+                key={route.label}
                 variant={pathName === route.href ? "secondary" : "ghost"}
                 onClick={() => onClick(route.href)}
                 className="w-full justify-start"
